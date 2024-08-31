@@ -14,8 +14,8 @@
         <div class="welcome">
             <p class="instructions">Split your bill evenly among friends or by item.</p>
             <div class="options">
-                <button class="options-btn" id="even-btn">Even</button>
-                <button class="options-btn" id="item-btn">By Item</button>
+                <button class="options-btn btn" id="even-btn">Even</button>
+                <button class="options-btn btn" id="item-btn">By Item</button>
             </div>
         </div>
         <div class="even-split">
@@ -26,12 +26,13 @@
             <div class="even-diners">
                 <label for="numPeople">Number of Diners:</label>
                 <input type="number" name="numPeople" id="num-people" step="1" value="2" min="2" max="8" required />
-                <button id="split-btn">Split!</button>
+                <button id="split-btn" class="btn">Split!</button>
             </div>
             <div class="even-amount">
                 <p>Amount for Each Person: </p>
                 <p class="split-amount"></p>
             </div>
+            <button class="home-btn btn" id="even-home-btn">Home</button>
         </div>
         <div class="item-split">
             <div class="item-bill">
@@ -40,6 +41,7 @@
             </div>
             <div class="addPeople">
             </div>
+            <button class="home-btn btn" id="item-home-btn">Home</button>
         </div>
     </article>
 

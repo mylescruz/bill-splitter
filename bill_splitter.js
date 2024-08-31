@@ -1,3 +1,7 @@
+const showWelcome = () => {
+    document.querySelector('.welcome').style.display = 'flex';
+};
+
 const hideWelcome = () => {
     document.querySelector('.welcome').style.display = 'none';
 };
@@ -18,5 +22,15 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('item-btn').addEventListener('click', () => {
         hideWelcome();
         document.querySelector('.item-split').style.display = 'flex';
+
+        addDiners();
+    });
+    document.getElementById('even-home-btn').addEventListener('click', () => {
+        document.querySelector('.even-split').style.display = 'none';
+        showWelcome();
+    });
+    document.getElementById('item-home-btn').addEventListener('click', () => {
+        document.querySelector('.item-split').style.display = 'none';
+        showWelcome();
     });
 });
