@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+}
+
+.even-split {
+    display: none;
+}
+
+.item-split {
+    display: none;
+}

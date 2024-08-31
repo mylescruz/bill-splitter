@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Bill Splitter</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">Bill Splitter</h1>
+    </header>
+    <article>
+        <div class="welcome">
+            <p class="instructions">Split your bill evenly among friends or by item.</p>
+            <div class="options">
+                <button class="options-btn" id="even-btn">Even</button>
+                <button class="options-btn" id="item-btn">By Item</button>
+            </div>
+        </div>
+        <div class="even-split">
+            <form method="post">
+                <label for="total">Bill Total:</label>
+                <input type="number" name="total" id="split-total" step="0.01" placeholder="0.00" min="1.00" required />
+                <label for="numPeople">Number of Diners:</label>
+                <input type="number" name="numPeople" id="numPeople" step="1" placeholder="2" min="2" max="8" required />
+                <input type="submit" value="Split!" />
+            </form>
+        </div>
+        <div class="item-split">
+            <div class="item-bill">
+                <label for="total">Bill Total:</label>
+                <input type="number" name="total" id="item-total" step="0.01" placeholder="0.00" min="1.00" required />
+            </div>
+            <div class="addPeople">
+                <p>Add a diner</p>
+                <button id="addPeople">+</button>
+            </div>
+        </div>
+    </article>
+
+    <script src="bill_splitter.js"></script>
+</body>
+</html>
