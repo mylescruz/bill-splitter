@@ -19,13 +19,19 @@
             </div>
         </div>
         <div class="even-split">
-            <form method="post">
+            <div class="even-total">
                 <label for="total">Bill Total:</label>
                 <input type="number" name="total" id="split-total" step="0.01" placeholder="0.00" min="1.00" required />
+            </div>
+            <div class="even-diners">
                 <label for="numPeople">Number of Diners:</label>
-                <input type="number" name="numPeople" id="numPeople" step="1" placeholder="2" min="2" max="8" required />
-                <input type="submit" value="Split!" />
-            </form>
+                <input type="number" name="numPeople" id="num-people" step="1" value="2" min="2" max="8" required />
+                <button id="split-btn">Split!</button>
+            </div>
+            <div class="even-amount">
+                <p>Amount for Each Person: </p>
+                <p class="split-amount"></p>
+            </div>
         </div>
         <div class="item-split">
             <div class="item-bill">
@@ -33,8 +39,6 @@
                 <input type="number" name="total" id="item-total" step="0.01" placeholder="0.00" min="1.00" required />
             </div>
             <div class="addPeople">
-                <p>Add a diner</p>
-                <button id="addPeople">+</button>
             </div>
         </div>
     </article>

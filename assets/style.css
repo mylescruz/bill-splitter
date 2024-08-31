@@ -10,8 +10,17 @@ html, body {
 
 .even-split {
     display: none;
+    flex-direction: column;
+}
+
+#num-people {
+    width: 3em;
 }
 
 .item-split {
+    display: none;
+}
+
+.item-bill {
     display: none;
 }
