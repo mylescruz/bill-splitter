@@ -19,6 +19,7 @@ html, body {
 
 .item-split {
     display: none;
+    flex-direction: column;
 }
 
 .item-bill {
