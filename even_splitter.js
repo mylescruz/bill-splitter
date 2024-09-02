@@ -19,8 +19,8 @@ const splitTotalEvenly = () => {
     
     document.getElementById('total-amount').textContent = `$${total.toFixed(2)}`;
     document.getElementById('split-amount').textContent = `$${splitAmount.toFixed(2)}`;
-    
-    document.querySelector('.split-calculations').style.display = 'flex';
+
+    document.querySelector('.even-calculations').style.display = 'flex';
 };
 
 window.addEventListener('DOMContentLoaded', () => {

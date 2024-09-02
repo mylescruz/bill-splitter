@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
 }
 
-.split-calculations {
+.even-calculations {
     display: none;
     flex-direction: column;
 }
