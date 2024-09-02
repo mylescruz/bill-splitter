@@ -3,7 +3,11 @@ html, body {
     padding: 0;
 }
 
-.welcome {
+.btn {
+    width: 75px;
+}
+
+.main-menu {
     display: flex;
     flex-direction: column;
 }
@@ -29,4 +33,13 @@ html, body {
 .add-items {
     display: none;
     flex-direction: column;
+}
+
+.calculate-split {
+    display: none;
+    flex-direction: column;
+}
+
+#custom-tip {
+    display: none;
 }
