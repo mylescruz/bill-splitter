@@ -1,13 +1,5 @@
 const diners = new Map();
 
-const showMainMenu = () => {
-    document.querySelector('.main-menu').style.display = 'flex';
-};
-
-const hideMainMenu = () => {
-    document.querySelector('.main-menu').style.display = 'none';
-};
-
 // Add a diner to the dropdown
 const dinerOptions = () => {
     diners.forEach((value, key) => {
@@ -65,38 +57,7 @@ const inputDiners = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Go to splitting evenly
-    document.getElementById('even-btn').addEventListener('click', () => {
-        hideMainMenu();
-        document.querySelector('.even-split').style.display = 'flex';
-        
-        document.getElementById('split-even-btn').addEventListener('click', () => {
-            const billTotal = document.getElementById('split-total').value;
-            const numPeople = document.getElementById('num-people').value;
-
-            const splitAmount = billTotal / numPeople;
-            document.getElementById('split-amount').textContent = `$${splitAmount.toFixed(2)}`;
-        });
-    });
-    // Go to splitting by item
-    document.getElementById('item-btn').addEventListener('click', () => {
-        hideMainMenu();
-        document.querySelector('.item-split').style.display = 'flex';
-
-        inputDiners();
-    });
-
-    // Go to main menu
-    document.getElementById('even-home-btn').addEventListener('click', () => {
-        document.querySelector('.even-split').style.display = 'none';
-        showMainMenu();
-    });
-    // Go to main menu
-    document.getElementById('item-home-btn').addEventListener('click', () => {
-        document.querySelector('.item-split').style.display = 'none';
-        showMainMenu();
-    });
-
+    inputDiners();
     // Add items to each diner
     document.getElementById('add-item-btn').addEventListener('click', () => {
         const item = document.getElementById('item-name');

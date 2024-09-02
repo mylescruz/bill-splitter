@@ -14,68 +14,9 @@
         <div class="main-menu">
             <p class="instructions">Split your bill evenly among friends or by item.</p>
             <div class="options">
-                <button class="options-btn btn" id="even-btn">Even</button>
-                <button class="options-btn btn" id="item-btn">By Item</button>
+                <button class="options-btn btn" id="even-btn" onclick="window.location.href='evensplit.html';">Even</button>
+                <button class="options-btn btn" id="item-btn" onclick="window.location.href='itemsplit.html';">By Item</button>
             </div>
-        </div>
-        <div class="even-split">
-            <div class="even-total">
-                <label for="total">Bill Total:</label>
-                <input type="number" name="total" id="split-total" step="0.01" placeholder="0.00" min="1.00" required />
-            </div>
-            <div class="even-diners">
-                <label for="numPeople">Number of Diners:</label>
-                <input type="number" name="numPeople" id="num-people" step="1" value="2" min="2" max="8" required />
-                <button class="btn" id="split-even-btn">Split!</button>
-            </div>
-            <div class="even-amount">
-                <p>Amount for Each Person: <span id="split-amount"></span></p>
-            </div>
-            <button class="home-btn btn" id="even-home-btn">Home</button>
-        </div>
-        <div class="item-split">
-            <div class="add-people">
-                <input type="text" name="dinerName" id="diner-name" placeholder="Enter diner's name"/>
-                <button class="btn" id="add-diner-btn">+</button>
-                <button class="btn" id="diner-next-btn" disabled>Next</button>
-            </div>
-            <div class="add-items">
-                <div class="add-item-header">
-                    <label for="item-name">Enter an item:</label>
-                    <input type="text" name="itemName" id="item-name" placeholder="Enter item" required/>
-
-                    <label for="diners-dropdown">Choose a diner:</label>
-                    <select id="diners-dropdown">
-                        <option value="Everyone">Everyone</option>
-                    </select>
-                    
-                    <label for="total">Item Price:</label>
-                    <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
-                    
-                    <button class="btn" id="add-item-btn">+</button>
-                </div>
-                <div class="items-added"></div>
-                <button class="btn" id="item-next-btn">Next</button>
-            </div>
-            <div class="calculate-split">
-                <label for="tax">Tax Amount:</label>
-                <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00"  required />
-                
-                <label for="total">Bill Total:</label>
-                <input type="number" name="total" id="item-total" step="0.01"  min="1.00" placeholder="$0.00" required />
-
-                <label for="tip">Tip:</label>
-                <select id="tip">
-                    <option value="15">15%</option>
-                    <option value="18">18%</option>
-                    <option value="20">20%</option>
-                    <option value="Custom">Custom</option>
-                </select>
-                <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="Tip Amount($)" />
-                
-                <button class="btn" id="split-item-btn">Split!</button>
-            </div>
-            <button class="home-btn btn" id="item-home-btn">Home</button>
         </div>
     </article>
 
