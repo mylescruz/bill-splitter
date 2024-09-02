@@ -25,3 +25,8 @@ html, body {
 .item-bill {
     display: none;
 }
+
+.add-items {
+    display: none;
+    flex-direction: column;
+}

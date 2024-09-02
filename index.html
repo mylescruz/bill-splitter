@@ -29,8 +29,7 @@
                 <button id="split-btn" class="btn">Split!</button>
             </div>
             <div class="even-amount">
-                <p>Amount for Each Person: </p>
-                <p class="split-amount"></p>
+                <p>Amount for Each Person: <span id="split-amount"></span></p>
             </div>
             <button class="home-btn btn" id="even-home-btn">Home</button>
         </div>
@@ -39,10 +38,27 @@
                 <label for="total">Bill Total:</label>
                 <input type="number" name="total" id="item-total" step="0.01" placeholder="0.00" min="1.00" required />
             </div>
-            <div class="addPeople">
+            <div class="add-people">
                 <input type="text" name="dinerName" id="diner-name" placeholder="Enter diner's name"/>
                 <button class="btn" id="add-diner-btn">+</button>
                 <button class="btn" id="next-btn" disabled>Next</button>
+            </div>
+            <div class="add-items">
+                <div class="add-item-header">
+                    <label for="item-name">Enter an item:</label>
+                    <input type="text" name="itemName" id="item-name" placeholder="Enter item" required/>
+
+                    <label for="diners-dropdown">Choose a diner:</label>
+                    <select id="diners-dropdown">
+                        <option value="Everyone">Everyone</option>
+                    </select>
+                    
+                    <label for="total">Item Price:</label>
+                    <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
+                    
+                    <button class="btn" id="add-item-btn">+</button>
+                </div>
+                <div class="items-added"></div>
             </div>
             <button class="home-btn btn" id="item-home-btn">Home</button>
         </div>
