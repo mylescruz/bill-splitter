@@ -30,12 +30,15 @@ const inputDiners = () => {
     const addButton = document.getElementById('add-diner-btn');
     const nextButton = document.getElementById('diner-next-btn');
     
+    // Add empty shared diner for any shared food
+    diners.set('Shared', []);
+
     addButton.addEventListener('click', () => {
         if (nameInput.value !== '') {
             addDiners();
         }
 
-        if (diners.size > 1) {
+        if (diners.size > 2) {
             nextButton.removeAttribute('disabled');
         }
     });
@@ -44,7 +47,7 @@ const inputDiners = () => {
             addDiners();
         }
 
-        if (diners.size > 1) {
+        if (diners.size > 2) {
             nextButton.removeAttribute('disabled');
         }
     });
@@ -64,7 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const dinerDropdown = document.getElementById('diners-dropdown');
         const itemPrice = document.getElementById('item-price');
 
-        if (diners.has(dinerDropdown)) {
+        if (diners.has(dinerDropdown.value)) {
             diners.get(dinerDropdown.value).push({
                 item: item.value,
                 price: itemPrice.value
@@ -85,7 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.items-added').appendChild(food);
 
         item.value = '';
-        itemPrice.value = 0;
+        itemPrice.value = '';
 
         const nextButton = document.getElementById('item-next-btn');
         nextButton.addEventListener('click', () => {
@@ -132,22 +135,49 @@ window.addEventListener('DOMContentLoaded', () => {
         
         // Calculate total for each diner
         const splitContainer = document.querySelector('.item-calculations');
+        let sharedPrice = 0;
         diners.forEach((value, key, map) => {
-            let dinerContainer = document.createElement('div');
-            let diner = document.createElement('p');
+            if (key === 'Shared') {
+                const numDiners = map.size - 1;
+                let totalSharedCost = 0;
+                let sharedItems = '';
+                value.forEach(item => {
+                    totalSharedCost += parseFloat(item.price);
+                    sharedItems += item.item + ' ';
+                });
+                sharedPrice = totalSharedCost / numDiners;
+                
+                let sharedContainer = document.createElement('div');
+                let sharedItem = document.createElement('p');
+                sharedItem.textContent = `${key} Items: ${sharedItems}`
+                sharedContainer.appendChild(sharedItem);
+                let sharedCost = document.createElement('p');
+                sharedCost.textContent = `Price per person: $${sharedPrice.toFixed(2)}`;
+                sharedContainer.appendChild(sharedCost);
 
-            let dinerSubTotal = 0;
-            value.forEach(i => {
-                dinerSubTotal += parseFloat(i.price);
-            });
-            const dinerTaxes = dinerSubTotal * taxPercentage;
-            const dinerTip = dinerSubTotal * parseFloat(tipPercentage);
-            const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
-            diner.textContent = `${key}: SubTotal: $${dinerSubTotal.toFixed(2)} Tax: $${dinerTaxes.toFixed(2)} Tip: $${dinerTip.toFixed(2)} Total: $${dinerTotal.toFixed(2)}`;
+                splitContainer.append(sharedContainer);
+            } else {
+                let dinerContainer = document.createElement('div');
+                let dinerItems = document.createElement('p');
+                let dinerCost = document.createElement('p');
 
-            dinerContainer.appendChild(diner);
+                let dinerSubTotal = sharedPrice;
+                let items = '';
+                value.forEach(item => {
+                    dinerSubTotal += parseFloat(item.price);
+                    items += item.item + ' ';
+                });
 
-            splitContainer.append(dinerContainer);
+                const dinerTaxes = dinerSubTotal * taxPercentage;
+                const dinerTip = dinerSubTotal * parseFloat(tipPercentage);
+                const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
+                dinerItems.textContent = `${key}'s Items: ${items}`;
+                dinerCost.textContent = `SubTotal: $${dinerSubTotal.toFixed(2)} Tax: $${dinerTaxes.toFixed(2)} Tip: $${dinerTip.toFixed(2)} Total: $${dinerTotal.toFixed(2)}`;
+                dinerContainer.appendChild(dinerItems);
+                dinerContainer.appendChild(dinerCost);
+
+                splitContainer.append(dinerContainer);
+            }
         });
     });
 });
