@@ -3,6 +3,10 @@ html, body {
     padding: 0;
 }
 
+* {
+    touch-action: manipulation;
+}
+
 .btn {
     width: 75px;
 }

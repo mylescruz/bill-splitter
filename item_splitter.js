@@ -105,9 +105,49 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // document.getElementById('split-item-btn').addEventListener('click', () => {
-    //     diners.forEach((value, key, map) => {
+    // Calculations for splitting the items
+    document.getElementById('split-item-btn').addEventListener('click', () => {
+        const billTotal = parseFloat(document.getElementById('item-total').value);
+        const tax = parseFloat(document.getElementById('tax').value);
+        const tipPercentage = document.getElementById('tip').value;
+        let customFlag = false;
+        let total = 0;
+        let tipAmount = 0;
+        let subTotal = billTotal - tax;
+        const taxPercentage = tax / subTotal;
+        console.log(taxPercentage);
 
-    //     });
-    // });
+        if (tipPercentage === 'Custom') {
+            customFlag = true;
+
+            tipAmount = parseFloat(document.getElementById('custom-tip').value);
+            total = billTotal + tipAmount;
+        } else {
+            tipAmount = subTotal * parseFloat(tipPercentage);
+            
+            total = parseFloat(billTotal) + parseFloat(tipAmount);
+        }
+        
+        document.getElementById('total-amount').textContent = `$${total.toFixed(2)}`;
+        
+        // Calculate total for each diner
+        const splitContainer = document.querySelector('.item-calculations');
+        diners.forEach((value, key, map) => {
+            let dinerContainer = document.createElement('div');
+            let diner = document.createElement('p');
+
+            let dinerSubTotal = 0;
+            value.forEach(i => {
+                dinerSubTotal += parseFloat(i.price);
+            });
+            const dinerTaxes = dinerSubTotal * taxPercentage;
+            const dinerTip = dinerSubTotal * parseFloat(tipPercentage);
+            const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
+            diner.textContent = `${key}: SubTotal: $${dinerSubTotal.toFixed(2)} Tax: $${dinerTaxes.toFixed(2)} Tip: $${dinerTip.toFixed(2)} Total: $${dinerTotal.toFixed(2)}`;
+
+            dinerContainer.appendChild(diner);
+
+            splitContainer.append(dinerContainer);
+        });
+    });
 });
