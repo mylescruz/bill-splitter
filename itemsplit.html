@@ -12,45 +12,52 @@
     </header>
     <article>
         <div class="item-split">
-            <div class="add-people">
-                <input type="text" name="dinerName" id="diner-name" placeholder="Enter diner's name"/>
-                <button class="btn" id="add-diner-btn">+</button>
-                <button class="btn" id="diner-next-btn" disabled>Next</button>
+            <div class="add-diner">
+                <form action="javascript:;" onsubmit="addDiners()">
+                    <div class="add-section">
+                        <label for="diner-name">Enter a diner's name:</label>
+                        <input type="text" name="dinerName" id="diner-name"/>
+                        <input type="submit" class="btn" id="add-diner-btn" value="+" />
+                    </div>
+                </form>
+                <button class="btn" id="diner-next-btn">Next</button>
             </div>
             <div class="add-items">
-                <div class="add-item-header">
+                <form action="javascript:;" onsubmit="enterItems()">
                     <label for="item-name">Enter an item:</label>
                     <input type="text" name="itemName" id="item-name" placeholder="Enter item" required/>
 
                     <label for="diners-dropdown">Choose a diner:</label>
-                    <select id="diners-dropdown">
-                    </select>
+                    <select id="diners-dropdown"></select>
                     
                     <label for="total">Item Price:</label>
                     <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
                     
-                    <button class="btn" id="add-item-btn">+</button>
-                </div>
+                    <input type="submit" class="btn" id="add-item-btn" value="+" />
+                </form>
+
                 <div class="items-added"></div>
                 <button class="btn" id="item-next-btn">Next</button>
             </div>
             <div class="calculate-split">
-                <label for="tax">Tax Amount:</label>
-                <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00"  required />
-                
-                <label for="total">Bill Total:</label>
-                <input type="number" name="total" id="item-total" step="0.01"  min="1.00" placeholder="$0.00" required />
+                <form action="javascript:;" onsubmit="splitTotalByItem()">
+                    <label for="total">Bill Total:</label>
+                    <input type="number" name="total" id="item-total" step="0.01"  min="1.00" placeholder="$0.00" required />
 
-                <label for="tip">Tip:</label>
-                <select id="tip">
-                    <option value="0.15">15%</option>
-                    <option value="0.18">18%</option>
-                    <option value="0.20">20%</option>
-                    <option value="Custom">Custom</option>
-                </select>
-                <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00" />
-                
-                <button class="btn" id="split-item-btn">Split!</button>
+                    <label for="tax">Tax Amount:</label>
+                    <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00"  required />
+
+                    <label for="tip">Tip:</label>
+                    <select id="tip">
+                        <option value="0.15">15%</option>
+                        <option value="0.18">18%</option>
+                        <option value="0.20">20%</option>
+                        <option value="Custom">Custom</option>
+                    </select>
+                    <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00" />
+
+                    <input type="submit" class="btn" id="split-item-btn" value="Split!" />
+                </form>
 
                 <div class="item-calculations">
                     <p>Total Amount: <span id="total-amount"></span></p>

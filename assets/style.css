@@ -42,6 +42,11 @@ html, body {
     flex-direction: column;
 }
 
+.item-calculations {
+    display: none;
+    flex-direction: column;
+}
+
 .calculate-split {
     display: none;
     flex-direction: column;

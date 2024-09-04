@@ -13,33 +13,25 @@
     <article>
         <div class="even-amounts">
             <form action="javascript:;" onsubmit="splitTotalEvenly()">
-                <div class="even-total">
-                    <label for="total">Bill Total:</label>
-                    <input type="number" name="total" id="split-total" step="0.01" placeholder="$0.00" min="1.00" required />
-                </div>
+                <label for="total">Bill Total:</label>
+                <input type="number" name="total" id="split-total" step="0.01" placeholder="$0.00" min="1.00" required />
+                
+                <label for="tax">Tax Amount:</label>
+                <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00" required />
 
-                <div class="even-tax">
-                    <label for="tax">Tax Amount:</label>
-                    <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00" required />
-                </div>
+                <label for="tip">Tip:</label>
+                <select id="tip">
+                    <option value="0.15">15%</option>
+                    <option value="0.18">18%</option>
+                    <option value="0.20">20%</option>
+                    <option value="Custom">Custom</option>
+                </select>
+                <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00"/>
 
-                <div class="even-tip">
-                    <label for="tip">Tip:</label>
-                    <select id="tip">
-                        <option value="0.15">15%</option>
-                        <option value="0.18">18%</option>
-                        <option value="0.20">20%</option>
-                        <option value="Custom">Custom</option>
-                    </select>
-                    <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00"/>
-                </div>
+                <label for="numDiners">Number of Diners:</label>
+                <input type="number" name="numDiners" id="num-diners" step="1" value="2" min="2" max="8" required />
 
-                <div class="even-diners">
-                    <label for="numDiners">Number of Diners:</label>
-                    <input type="number" name="numDiners" id="num-diners" step="1" value="2" min="2" max="8" required />
-                </div>
-
-            <input type="submit" class="btn" id="split-even-btn" value="Split!" />
+                <input type="submit" class="btn" id="split-even-btn" value="Split!" />
             </form>
 
             <div class="even-calculations">
