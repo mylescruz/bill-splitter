@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
 }
 
-.even-split {
+.even-amounts {
     flex-direction: column;
 }
 
@@ -25,7 +25,7 @@ html, body {
     flex-direction: column;
 }
 
-#num-people {
+#num-diners {
     width: 3em;
 }
 
