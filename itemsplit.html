@@ -11,15 +11,16 @@
         <h1 class="title">Bill Splitter</h1>
     </header>
     <main>
-        <div class="item-split">
+        <div class="item-menu">
             <div class="add-diner">
-                <form action="javascript:;" onsubmit="addDiners()">
+                <p class="add-diner-instructions">Enter each diner's name</p>
+                <form action="javascript:;" class="add-diner-form" onsubmit="addDiners()">
                     <div class="add-section">
-                        <label for="diner-name">Enter a diner's name:</label>
                         <input type="text" name="dinerName" id="diner-name"/>
                         <input type="submit" class="btn" id="add-diner-btn" value="+" />
                     </div>
                 </form>
+                <div class="added-diners"></div>
                 <button class="btn" id="diner-next-btn">Next</button>
             </div>
             <div class="add-items">
@@ -64,10 +65,10 @@
                 </div>
             </div>
         </div>
+        <div class="home">
+            <button class="btn" id="home-btn" onclick="window.location.href='index.html';">Home</button>
+        </div>
     </main>
-    <footer>
-        <button class="home-btn btn" id="home-btn" onclick="window.location.href='index.html';">Home</button>
-    </footer>
 
     <script src="item_splitter.js"></script>
 </body>

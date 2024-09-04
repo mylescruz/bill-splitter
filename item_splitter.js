@@ -25,9 +25,14 @@ const addDiners = () => {
     const diner = document.createElement('p');
     diner.innerHTML = nameInput.value;
     nameInput.value='';
-    document.querySelector('.add-section').append(diner);
+    document.querySelector('.added-diners').appendChild(diner);
 
     console.log("Inputed diners: ", diners);
+
+    // Allow a user to move on to the next screen after adding enough diners
+    if (diners.size > 2) {
+        document.getElementById('diner-next-btn').style.display = 'inline';
+    }
 };
 
 // Enter ordered items
@@ -152,13 +157,9 @@ const splitTotalByItem = () => {
 window.addEventListener('DOMContentLoaded', () => {
     // Move on to entering the items ordered section after clicking next
     document.getElementById('diner-next-btn').addEventListener('click', () => {
-        if (diners.size > 2) {
-            document.querySelector('.add-diner').style.display = 'none';
-            document.querySelector('.add-items').style.display = 'flex';
-            dinerOptions();
-        } else {
-            window.alert('Must enter more than one diner');
-        }
+        document.querySelector('.add-diner').style.display = 'none';
+        document.querySelector('.add-items').style.display = 'flex';
+        dinerOptions();
     });
 
     // Move on to the totals section after clicking next
