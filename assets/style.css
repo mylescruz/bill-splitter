@@ -45,6 +45,7 @@ main {
     margin: 0em 1em;
     padding: 1em;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
@@ -53,6 +54,19 @@ main {
     font-size: 1.75em;
 }
 
+.btn {
+    width: 5em;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    border-radius: 12px;
+    font-size: 0.75em;
+}
+
+.home {
+    margin: 1em 0em 0em;
+}
+
+/* index.html styles */
 .instructions {
     text-align: center;
 }
@@ -69,27 +83,47 @@ main {
     justify-content: space-evenly;
 }
 
-.btn {
-    width: 5em;
-    background-color: var(--primary-black);
-    color: var(--primary-white);
-    border-radius: 12px;
-    font-size: 0.75em;
+/* evensplit.html styles */
+.even-instructions {
+    margin: 0;
 }
 
-.even-amounts {
+.even-menu {
+    padding: 1em;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.even-form {
+    margin: 0.5em 0em;
+}
+
+.even-total, .even-tax, .even-tip, .even-diners  {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .even-calculations {
+    margin: 1em 0em 0em;
     display: none;
     flex-direction: column;
+    font-size: 0.75em;
 }
 
-#num-diners {
-    width: 3em;
+.even-calculations > p {
+    margin: 0.25em;
+    padding: 0;
 }
 
+#total-amount, #split-amount {
+    font-family: "Roboto-Bold";
+}
+
+/* itemsplit.html styles */
 .item-split {
     flex-direction: column;
 }

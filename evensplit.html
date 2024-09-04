@@ -11,36 +11,60 @@
         <h1 class="title">Bill Splitter</h1>
     </header>
     <main>
-        <div class="even-amounts">
-            <form action="javascript:;" onsubmit="splitTotalEvenly()">
-                <label for="total">Bill Total:</label>
-                <input type="number" name="total" id="split-total" step="0.01" placeholder="$0.00" min="1.00" required />
+        <p class="even-instructions">Enter the bill's information</p>
+        <div class="even-menu">
+            <form action="javascript:;" class="even-form" onsubmit="splitTotalEvenly()">
+                <div class="even-total">
+                    <label for="total">Total:</label>
+                    <input type="number" name="total" id="split-total" step="0.01" placeholder="$0.00" min="1.00" required />
+                </div>
+
+                <div class="even-tax">
+                    <label for="tax">Tax:</label>
+                    <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00" required />
+                </div>
                 
-                <label for="tax">Tax Amount:</label>
-                <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00" required />
-
-                <label for="tip">Tip:</label>
-                <select id="tip">
-                    <option value="0.15">15%</option>
-                    <option value="0.18">18%</option>
-                    <option value="0.20">20%</option>
-                    <option value="Custom">Custom</option>
-                </select>
-                <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00"/>
-
-                <label for="numDiners">Number of Diners:</label>
-                <input type="number" name="numDiners" id="num-diners" step="1" value="2" min="2" max="8" required />
+                <div class="even-tip">
+                    <label for="tip">Tip:</label>
+                    <select id="tip">
+                        <option value="0.15">15%</option>
+                        <option value="0.18">18%</option>
+                        <option value="0.20">20%</option>
+                        <option value="Custom">Custom</option>
+                    </select>
+                    <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00"/>
+                </div>
+                
+                <div class="even-diners">
+                    <label for="numDiners">Number of Diners:</label>
+                    <select id="num-diners">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
 
                 <input type="submit" class="btn" id="split-even-btn" value="Split!" />
             </form>
 
             <div class="even-calculations">
-                <p>Total Amount: <span id="total-amount"></span></p>
-                <p>Amount for Each Person: <span id="split-amount"></span></p>
+                <p>Bill Total:</p>
+                <p id="total-amount"></p>
+                <p>Amount for Each Diner:</p>
+                <p id="split-amount"></p>
             </div>
         </div>
-        <button class="home-btn btn" id="home-btn" onclick="window.location.href='index.html';">Home</button>
+        <div class="home">
+            <button class="btn" id="home-btn" onclick="window.location.href='index.html';">Home</button>
+        </div>
     </main>
+    <footer>
+        
+    </footer>
 
     <script src="even_splitter.js"></script>
 </body>

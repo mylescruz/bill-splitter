@@ -26,11 +26,20 @@ const splitTotalEvenly = () => {
     }
     const splitAmount = totalPlusTip / numDiners;
     
-    document.getElementById('total-amount').textContent = `$${totalPlusTip.toFixed(2)}`;
-    document.getElementById('split-amount').textContent = `$${splitAmount.toFixed(2)}`;
+    document.getElementById('total-amount').textContent = `${formatCurrency(totalPlusTip)}`;
+    document.getElementById('split-amount').textContent = `${formatCurrency(splitAmount)}`;
 
     document.querySelector('.even-calculations').style.display = 'flex';
 };
+
+function formatCurrency(number) {
+    const formattedNumber = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    }).format(number);
+
+    return formattedNumber;
+} 
 
 window.addEventListener('DOMContentLoaded', () => {
     // Allow user to enter a custom tip
