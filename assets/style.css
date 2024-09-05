@@ -56,14 +56,17 @@ main {
 
 .btn {
     width: 5em;
+    margin: 0;
+    padding: 0;
     background-color: var(--primary-black);
     color: var(--primary-white);
     border-radius: 12px;
     font-size: 1em;
+    text-align: center;
 }
 
 .home {
-    margin: 1em 0em 0em;
+    margin: 0.55em 0em 0em;
 }
 
 /* index.html styles */
@@ -91,7 +94,8 @@ main {
 }
 
 .even-menu {
-    padding: 1em;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,30 +113,40 @@ main {
     justify-content: space-between;
 }
 
-.even-total > input, .even-tax > input, .even-tip > select {
+.even-total > input, .even-tax > input, .even-tip > select, .even-diners > select {
     font-size: 0.6em;
     width: 50%;
 }
 
 .even-calculations {
+    width: 100%;
     margin: 1em 0em 0em;
+    padding: 0.5em;
+    height: 7em;
     display: none;
     flex-direction: column;
-    font-size: 0.75em;
+    overflow-y: scroll;
+    background-color: var(--primary-black);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.75em; 
 }
 
 .even-calculations > p {
-    margin: 0.25em;
+    margin: 0.25em 0em;
     padding: 0;
 }
 
 #total-amount, #split-amount {
+    margin: 0.5em 0em;
+    padding: 0;
     font-family: "Roboto-Bold";
 }
 
 /* itemsplit.html styles */
 .item-menu {
     width: 100%;
+    margin: 0em;
     display: flex;
     flex-direction: column;
 }
@@ -144,6 +158,7 @@ main {
 .add-diner-instructions, .add-items-instructions, .split-instructions {
     margin: 1em 0em;
     padding: 0;
+    text-align: center;
 }
 
 .add-diner-form {
@@ -201,6 +216,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 0.8em;
 }
 
 .enter-item-name > input, .choose-diner > select, .enter-item-price > input {
@@ -237,10 +253,11 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 0.8em;
 }
 
 .enter-item-total > input, .enter-item-tax > input, .enter-item-tip > select {
-    font-size: 0.6em;
+    font-size: 0.8em;
     width: 50%;
 }
 
@@ -257,7 +274,7 @@ main {
 .item-calculations {
     margin: 1em 0em;
     padding: 0.5em;
-    height: 8em;
+    height: 7em;
     display: none;
     flex-direction: column;
     overflow-y: scroll;

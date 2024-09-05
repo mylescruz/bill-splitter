@@ -72,7 +72,22 @@ const enterItems = () => {
 }
 
 // Calculations for splitting the items
+let splitComplete = false;
+
 const splitTotalByItem = () => {
+    if (splitComplete) {
+        let calculationsContainer = document.querySelector('.calculations');
+        calculationsContainer.remove();
+    }
+    let calculationsContainer = document.createElement('div');
+    calculationsContainer.classList.add('calculations');
+    
+    let calculatedTotal = document.createElement('p');
+    calculatedTotal.classList.add('calculated-total');
+    calculatedTotal.innerHTML = 'Bill Total with Tip';
+    let totalAmount = document.createElement('p');
+    totalAmount.setAttribute('id','total-amount');
+
     const billTotal = parseFloat(document.getElementById('item-total').value);
     const tax = parseFloat(document.getElementById('tax').value);
     const tipPercentage = document.getElementById('tip').value;
@@ -99,7 +114,9 @@ const splitTotalByItem = () => {
         totalPlusTip = parseFloat(billTotal) + parseFloat(tipAmount);
     }
     
-    document.getElementById('total-amount').textContent = `${formatCurrency(totalPlusTip)}`;
+    totalAmount.textContent = `${formatCurrency(totalPlusTip)}`;
+
+    calculationsContainer.append(calculatedTotal, totalAmount);
     
     // Calculate total for each diner
     const splitContainer = document.querySelector('.item-calculations');
@@ -130,7 +147,7 @@ const splitTotalByItem = () => {
                 sharedCost.textContent = `Price per person: ${formatCurrency(sharedPrice)}`;
                 sharedContainer.appendChild(sharedCost);
 
-                splitContainer.append(sharedContainer);
+                calculationsContainer.append(sharedContainer);
             }
         } else {
             let dinerContainer = document.createElement('div');
@@ -162,10 +179,12 @@ const splitTotalByItem = () => {
             dinerContainer.appendChild(dinerItems);
             dinerContainer.appendChild(dinerCost);
 
-            splitContainer.append(dinerContainer);
+            calculationsContainer.append(dinerContainer);
         }
     });
+    splitContainer.appendChild(calculationsContainer);
     splitContainer.style.display = 'flex';
+    splitComplete = true;
 };
 
 // Format the given number into US currency
