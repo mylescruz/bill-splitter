@@ -1,7 +1,6 @@
 :root {
-    --primary-red: #e94f37;
-    --primary-white: #f6f7eb;
-    --primary-black: #393e41;
+    --primary-white: #ECE7E2;
+    --primary-green: #4A7766;
 }
 
 @font-face {
@@ -28,7 +27,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-black);
+    background-color: var(--primary-green);
     color: white;
     font-family: "Roboto";
 }
@@ -41,7 +40,7 @@ body {
 
 main {
     width: 80%;
-    height: 75vh;
+    height: 75dvh;
     margin: 0em 1em;
     padding: 1em;
     display: flex;
@@ -49,18 +48,21 @@ main {
     justify-content: center;
     align-items: center;
     background-color: white;
-    color: var(--primary-black);
+    color: var(--primary-green);
     border-radius: 24px;
     font-size: 1.75em;
+    overflow-y: scroll;
 }
 
 .btn {
-    width: 5em;
+    width: 4em;
     margin: 0;
     padding: 0;
-    background-color: var(--primary-black);
+    background-color: var(--primary-green);
     color: var(--primary-white);
     border-radius: 12px;
+    border-color: none;
+    box-shadow: 1px 1px 3px var(--primary-green);
     font-size: 1em;
     text-align: center;
 }
@@ -94,6 +96,7 @@ main {
 }
 
 .even-menu {
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -103,6 +106,7 @@ main {
 }
 
 .even-form {
+    width: 90%;
     margin: 0.5em 0em;
 }
 
@@ -119,14 +123,14 @@ main {
 }
 
 .even-calculations {
-    width: 100%;
+    width: 90%;
     margin: 1em 0em 0em;
-    padding: 0.5em;
+    padding: 0.5em 0em;
     height: 7em;
     display: none;
     flex-direction: column;
     overflow-y: scroll;
-    background-color: var(--primary-black);
+    background-color: var(--primary-green);
     color: white;
     border-radius: 12px;
     font-size: 0.75em; 
@@ -138,7 +142,7 @@ main {
 }
 
 #total-amount, #split-amount {
-    margin: 0.5em 0em;
+    margin: 0.25em 0em;
     padding: 0;
     font-family: "Roboto-Bold";
 }
@@ -149,9 +153,16 @@ main {
     margin: 0em;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .add-diner {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -162,6 +173,7 @@ main {
 }
 
 .add-diner-form {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -186,12 +198,28 @@ main {
 }
 
 .added-diners {
-    margin: 0em;
+    width: 90%;
+    margin: 1em 0em 0em;
+    padding: 0.5em 0em;
+    height: 7em;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background-color: var(--primary-green);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.75em; 
+    text-align: start;
+}
+
+.diners-title, .items-title {
+    margin: 0.25em;
+    padding: 0;
     text-align: center;
 }
 
 .diner {
-    margin: 0.5em 0;
+    margin: 0.25em 0.5em;
     padding: 0;
 }
 
@@ -204,10 +232,13 @@ main {
 .add-items {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
 .add-items-form {
+    width: 90%;
     margin: 0em 0em 1em
 }
 
@@ -228,23 +259,36 @@ main {
 }
 
 .items-added {
-    height: 4em;
+    width: 90%;
+    margin: 1em 0em 0em;
+    padding: 0.5em 0em;
+    height: 7em;
+    display: flex;
+    flex-direction: column;
     overflow-y: scroll;
+    background-color: var(--primary-green);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.75em; 
     text-align: start;
 }
 
 .ordered-item {
-    margin: 0;
+    margin: 0.25em 0.5em;
     padding: 0;
     font-size: 0.75em;
 }
 
 .calculate-split {
+    width: 90%;
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .calculate-form {
+    width: 90%;
     text-align: center;
 }
 
@@ -272,24 +316,20 @@ main {
 }
 
 .item-calculations {
+    width: 90%;
     margin: 1em 0em;
-    padding: 0.5em;
+    padding: 0.5em 0em;
     height: 7em;
     display: none;
     flex-direction: column;
     overflow-y: scroll;
-    background-color: var(--primary-black);
+    background-color: var(--primary-green);
     color: white;
     border-radius: 12px;
 }
 
-.item-calculations > p {
-    margin: 0.25em;
-    padding: 0;
-}
-
-.calculated-total, .shared-order, .diner-order {
-    margin: 0.25em 0em;
+.calculated-total, .shared-order, .diner-order, #total-amount {
+    margin: 0.25em 0.5em;
     padding: 0;
 }
 

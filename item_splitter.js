@@ -24,7 +24,7 @@ const addDiners = () => {
     
     const diner = document.createElement('p');
     diner.classList.add('diner');
-    diner.innerHTML = nameInput.value;
+    diner.innerHTML = `• ${nameInput.value}`;
     nameInput.value='';
     document.querySelector('.added-diners').appendChild(diner);
 
@@ -139,7 +139,7 @@ const splitTotalByItem = () => {
 
                 let sharedItem = document.createElement('p');
                 sharedItem.classList.add('shared-items');
-                sharedItem.textContent = `${diner} Items: ${sharedItems}`
+                sharedItem.textContent = `• ${diner} Items: ${sharedItems}`
                 sharedContainer.appendChild(sharedItem);
 
                 let sharedCost = document.createElement('p');
@@ -174,7 +174,7 @@ const splitTotalByItem = () => {
             }
             
             const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
-            dinerItems.textContent = `${diner}'s Items: ${itemsOrdered}`;
+            dinerItems.textContent = `• ${diner}'s Items: ${itemsOrdered}`;
             dinerCost.textContent = `SubTotal: ${formatCurrency(dinerSubTotal)} Tax: ${formatCurrency(dinerTaxes)} Tip: ${formatCurrency(dinerTip)} Total: ${formatCurrency(dinerTotal)}`;
             dinerContainer.appendChild(dinerItems);
             dinerContainer.appendChild(dinerCost);
