@@ -154,7 +154,7 @@ const splitTotalByItem = () => {
             dinerContainer.classList.add('diner-order');
             let dinerItems = document.createElement('p');
             dinerItems.classList.add('diner-items');
-            let dinerCost = document.createElement('p');
+            let dinerCost = document.createElement('div');
             dinerCost.classList.add('diner-cost');
 
             let dinerSubTotal = sharedPrice;
@@ -175,7 +175,12 @@ const splitTotalByItem = () => {
             
             const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
             dinerItems.textContent = `• ${diner}'s Items: ${itemsOrdered}`;
-            dinerCost.textContent = `SubTotal: ${formatCurrency(dinerSubTotal)} Tax: ${formatCurrency(dinerTaxes)} Tip: ${formatCurrency(dinerTip)} Total: ${formatCurrency(dinerTotal)}`;
+            dinerCost.innerHTML = `
+                <span class="bill-info">SubTotal:</span> <span class="sub-total">${formatCurrency(dinerSubTotal)}</span> <br/>
+                <span class="bill-info">Tax:</span> <span class="tax">${formatCurrency(dinerTaxes)}</span> <br/>
+                <span class="bill-info">Tip:</span> <span class="tip">${formatCurrency(dinerTip)}</span> <br/>
+                <span class="bill-info">Total:</span> <span class="total">${formatCurrency(dinerTotal)}</span> <br/>
+            `;
             dinerContainer.appendChild(dinerItems);
             dinerContainer.appendChild(dinerCost);
 
