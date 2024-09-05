@@ -32,6 +32,7 @@ const splitTotalEvenly = () => {
     document.querySelector('.even-calculations').style.display = 'flex';
 };
 
+// Format the given number into US currency
 function formatCurrency(number) {
     const formattedNumber = new Intl.NumberFormat('en-US', {
         style: 'currency',

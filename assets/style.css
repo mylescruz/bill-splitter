@@ -136,7 +136,7 @@ main {
     text-align: center;
 }
 
-.add-diner-instructions {
+.add-diner-instructions, .add-items-instructions {
     margin: 1em 0em;
     padding: 0;
 }
@@ -170,6 +170,11 @@ main {
     text-align: center;
 }
 
+.diner {
+    margin: 0.5em 0;
+    padding: 0;
+}
+
 #diner-next-btn {
     display: none;
     text-align: center;
@@ -179,6 +184,34 @@ main {
 .add-items {
     display: none;
     flex-direction: column;
+    text-align: center;
+}
+
+.add-items-form {
+    margin: 0em 0em 1em
+}
+
+.enter-item-name, .choose-diner, .enter-item-price, .add-items-options {
+    padding: 0.5em 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.enter-item-name > input, .choose-diner > select, .enter-item-price > input {
+    font-size: 0.75em;
+}
+
+.items-added {
+    height: 4em;
+    overflow-y: scroll;
+    text-align: start;
+}
+
+.ordered-item {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
 }
 
 .item-calculations {

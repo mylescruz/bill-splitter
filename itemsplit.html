@@ -24,21 +24,31 @@
                 <button class="btn" id="diner-next-btn">Next</button>
             </div>
             <div class="add-items">
-                <form action="javascript:;" onsubmit="enterItems()">
-                    <label for="item-name">Enter an item:</label>
-                    <input type="text" name="itemName" id="item-name" placeholder="Enter item" required/>
+                <p class="add-items-instructions">Enter each item ordered</p>
+                <form action="javascript:;" class="add-items-form" onsubmit="enterItems()">
+                    <div class="enter-item-name">
+                        <label for="item-name">Item:</label>
+                        <input type="text" name="itemName" id="item-name" placeholder="Enter item" required/>
+                    </div>
 
-                    <label for="diners-dropdown">Choose a diner:</label>
-                    <select id="diners-dropdown"></select>
-                    
-                    <label for="total">Item Price:</label>
-                    <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
-                    
-                    <input type="submit" class="btn" id="add-item-btn" value="+" />
+                    <div class="choose-diner">
+                        <label for="diners-dropdown">Choose a diner:</label>
+                        <select id="diners-dropdown"></select>
+                    </div>
+
+                    <div class="enter-item-price">
+                        <label for="total">Price:</label>
+                        <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
+                    </div>
+
+                    <div class="add-item-options">
+                        <input type="submit" class="btn" id="add-item-btn" value="+" />
+                        <button class="btn" id="item-next-btn">Next</button>
+                    </div>
                 </form>
 
                 <div class="items-added"></div>
-                <button class="btn" id="item-next-btn">Next</button>
+                
             </div>
             <div class="calculate-split">
                 <form action="javascript:;" onsubmit="splitTotalByItem()">

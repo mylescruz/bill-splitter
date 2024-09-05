@@ -23,6 +23,7 @@ const addDiners = () => {
     diners.set(nameInput.value, []);
     
     const diner = document.createElement('p');
+    diner.classList.add('diner');
     diner.innerHTML = nameInput.value;
     nameInput.value='';
     document.querySelector('.added-diners').appendChild(diner);
@@ -58,7 +59,12 @@ const enterItems = () => {
     console.log("Diners with their items: ", diners);
 
     const food = document.createElement('p');
-    food.innerHTML = `Item: ${item.value} Price: $${itemPrice.value} Diner: ${dinerDropdown.value}`;
+    food.classList.add('ordered-item');
+    if (dinerDropdown.value === 'Shared') {
+        food.innerHTML = `• The group ordered ${item.value} for ${formatCurrency(itemPrice.value)}`;
+    } else {
+        food.innerHTML = `• ${dinerDropdown.value} ordered a ${item.value} for ${formatCurrency(itemPrice.value)}`;
+    }
     document.querySelector('.items-added').appendChild(food);
 
     item.value = '';
@@ -152,6 +158,16 @@ const splitTotalByItem = () => {
         }
     });
     splitContainer.style.display = 'flex';
+};
+
+// Format the given number into US currency
+function formatCurrency(number) {
+    const formattedNumber = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    }).format(number);
+
+    return formattedNumber;
 };
 
 window.addEventListener('DOMContentLoaded', () => {
