@@ -16,7 +16,7 @@
                 <p class="add-diner-instructions">Enter each diner's name</p>
                 <form action="javascript:;" class="add-diner-form" onsubmit="addDiners()">
                     <div class="add-section">
-                        <input type="text" name="dinerName" id="diner-name"/>
+                        <input type="text" name="dinerName" id="diner-name" required/>
                         <input type="submit" class="btn" id="add-diner-btn" value="+" />
                     </div>
                 </form>
@@ -33,11 +33,11 @@
 
                     <div class="choose-diner">
                         <label for="diners-dropdown">Diner:</label>
-                        <select id="diners-dropdown"></select>
+                        <select name="dinersDropdown" id="diners-dropdown"></select>
                     </div>
 
                     <div class="enter-item-price">
-                        <label for="total">Price:</label>
+                        <label for="item-price">Price:</label>
                         <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
                     </div>
 
@@ -52,7 +52,7 @@
                 <p class="split-instructions">Enter the bill's information</p>
                 <form action="javascript:;" class="calculate-form" onsubmit="splitTotalByItem()">
                     <div class="enter-item-total">
-                        <label for="total">Bill Total:</label>
+                        <label for="item-total">Bill Total:</label>
                         <input type="number" name="total" id="item-total" step="0.01"  min="1.00" placeholder="$0.00" required />
                     </div>
 
@@ -63,7 +63,7 @@
 
                     <div class="enter-item-tip">
                         <label for="tip">Tip:</label>
-                        <select id="tip">
+                        <select name="tip" id="tip">
                             <option value="0.15">15%</option>
                             <option value="0.18">18%</option>
                             <option value="0.20">20%</option>
