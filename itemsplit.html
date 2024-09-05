@@ -46,32 +46,38 @@
                         <button class="btn" id="item-next-btn">Next</button>
                     </div>
                 </form>
-
                 <div class="items-added"></div>
-                
             </div>
             <div class="calculate-split">
-                <form action="javascript:;" onsubmit="splitTotalByItem()">
-                    <label for="total">Bill Total:</label>
-                    <input type="number" name="total" id="item-total" step="0.01"  min="1.00" placeholder="$0.00" required />
+                <p class="split-instructions">Enter the bill's information</p>
+                <form action="javascript:;" class="calculate-form" onsubmit="splitTotalByItem()">
+                    <div class="enter-item-total">
+                        <label for="total">Bill Total:</label>
+                        <input type="number" name="total" id="item-total" step="0.01"  min="1.00" placeholder="$0.00" required />
+                    </div>
 
-                    <label for="tax">Tax Amount:</label>
-                    <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00"  required />
+                    <div class="enter-item-tax">
+                        <label for="tax">Tax Amount:</label>
+                        <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00"  required />
+                    </div>
 
-                    <label for="tip">Tip:</label>
-                    <select id="tip">
-                        <option value="0.15">15%</option>
-                        <option value="0.18">18%</option>
-                        <option value="0.20">20%</option>
-                        <option value="Custom">Custom</option>
-                    </select>
-                    <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00" />
+                    <div class="enter-item-tip">
+                        <label for="tip">Tip:</label>
+                        <select id="tip">
+                            <option value="0.15">15%</option>
+                            <option value="0.18">18%</option>
+                            <option value="0.20">20%</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                        <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00" />
+                    </div>
 
                     <input type="submit" class="btn" id="split-item-btn" value="Split!" />
                 </form>
 
                 <div class="item-calculations">
-                    <p>Total Amount: <span id="total-amount"></span></p>
+                    <p class="calculated-total">Bill Total with Tip:</p>
+                    <p id="total-amount"></p>
                 </div>
             </div>
         </div>

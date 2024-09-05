@@ -103,10 +103,15 @@ main {
 }
 
 .even-total, .even-tax, .even-tip, .even-diners  {
-    padding: 0.5em;
+    padding: 0.5em 0em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.even-total > input, .even-tax > input, .even-tip > select {
+    font-size: 0.6em;
+    width: 50%;
 }
 
 .even-calculations {
@@ -136,7 +141,7 @@ main {
     text-align: center;
 }
 
-.add-diner-instructions, .add-items-instructions {
+.add-diner-instructions, .add-items-instructions, .split-instructions {
     margin: 1em 0em;
     padding: 0;
 }
@@ -202,6 +207,10 @@ main {
     font-size: 0.75em;
 }
 
+.add-item-options {
+    margin: 1em 0em 0em;
+}
+
 .items-added {
     height: 4em;
     overflow-y: scroll;
@@ -214,16 +223,61 @@ main {
     font-size: 0.75em;
 }
 
-.item-calculations {
-    display: none;
-    flex-direction: column;
-}
-
 .calculate-split {
     display: none;
     flex-direction: column;
 }
 
+.calculate-form {
+    text-align: center;
+}
+
+.enter-item-total, .enter-item-tax, .enter-item-tip {
+    padding: 0.5em 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.enter-item-total > input, .enter-item-tax > input, .enter-item-tip > select {
+    font-size: 0.6em;
+    width: 50%;
+}
+
 #custom-tip {
     display: none;
+    font-size: 0.6em;
+    width: 25%;
 }
+
+#split-item-btn {
+    margin: 0.5em 0em 0em;
+}
+
+.item-calculations {
+    margin: 1em 0em;
+    padding: 0.5em;
+    height: 8em;
+    display: none;
+    flex-direction: column;
+    overflow-y: scroll;
+    background-color: var(--primary-black);
+    color: white;
+    border-radius: 12px;
+}
+
+.item-calculations > p {
+    margin: 0.25em;
+    padding: 0;
+}
+
+.calculated-total, .shared-order, .diner-order {
+    margin: 0.25em 0em;
+    padding: 0;
+}
+
+.shared-items, .shared-cost, .diner-items, .diner-cost {
+    margin: 0;
+    padding: 0;
+}
+

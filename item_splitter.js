@@ -99,7 +99,7 @@ const splitTotalByItem = () => {
         totalPlusTip = parseFloat(billTotal) + parseFloat(tipAmount);
     }
     
-    document.getElementById('total-amount').textContent = `$${totalPlusTip.toFixed(2)}`;
+    document.getElementById('total-amount').textContent = `${formatCurrency(totalPlusTip)}`;
     
     // Calculate total for each diner
     const splitContainer = document.querySelector('.item-calculations');
@@ -118,19 +118,27 @@ const splitTotalByItem = () => {
                 sharedPrice = totalSharedCost / numDiners;
                 
                 let sharedContainer = document.createElement('div');
+                sharedContainer.classList.add('shared-order');
+
                 let sharedItem = document.createElement('p');
+                sharedItem.classList.add('shared-items');
                 sharedItem.textContent = `${diner} Items: ${sharedItems}`
                 sharedContainer.appendChild(sharedItem);
+
                 let sharedCost = document.createElement('p');
-                sharedCost.textContent = `Price per person: $${sharedPrice.toFixed(2)}`;
+                sharedCost.classList.add('shared-cost');
+                sharedCost.textContent = `Price per person: ${formatCurrency(sharedPrice)}`;
                 sharedContainer.appendChild(sharedCost);
 
                 splitContainer.append(sharedContainer);
             }
         } else {
             let dinerContainer = document.createElement('div');
+            dinerContainer.classList.add('diner-order');
             let dinerItems = document.createElement('p');
+            dinerItems.classList.add('diner-items');
             let dinerCost = document.createElement('p');
+            dinerCost.classList.add('diner-cost');
 
             let dinerSubTotal = sharedPrice;
             let itemsOrdered = '';
@@ -150,7 +158,7 @@ const splitTotalByItem = () => {
             
             const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
             dinerItems.textContent = `${diner}'s Items: ${itemsOrdered}`;
-            dinerCost.textContent = `SubTotal: $${dinerSubTotal.toFixed(2)} Tax: $${dinerTaxes.toFixed(2)} Tip: $${dinerTip.toFixed(2)} Total: $${dinerTotal.toFixed(2)}`;
+            dinerCost.textContent = `SubTotal: ${formatCurrency(dinerSubTotal)} Tax: ${formatCurrency(dinerTaxes)} Tip: ${formatCurrency(dinerTip)} Total: ${formatCurrency(dinerTotal)}`;
             dinerContainer.appendChild(dinerItems);
             dinerContainer.appendChild(dinerCost);
 
@@ -180,6 +188,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Move on to the totals section after clicking next
     document.getElementById('item-next-btn').addEventListener('click', () => {
+        // Make sure every diner has an item or the group has shared an item
         let allHaveItems = true;
         let sharedItems = false;
 
