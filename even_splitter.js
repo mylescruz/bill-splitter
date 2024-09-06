@@ -26,7 +26,7 @@ const splitTotalEvenly = () => {
     }
     const splitAmount = totalPlusTip / numDiners;
     
-    document.getElementById('total-amount').textContent = `${formatCurrency(totalPlusTip)}`;
+    document.getElementById('even-total-amount').textContent = `${formatCurrency(totalPlusTip)}`;
     document.getElementById('split-amount').textContent = `${formatCurrency(splitAmount)}`;
 
     document.querySelector('.even-calculations').style.display = 'flex';

@@ -22,6 +22,10 @@ html, body {
     touch-action: manipulation;
 }
 
+::-webkit-scrollbar {
+    scrollbar-width: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -108,6 +112,7 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-size: 0.9em;
 }
 
 .even-form {
@@ -125,6 +130,10 @@ main {
 .even-total > input, .even-tax > input, .even-tip > select, .even-diners > select {
     font-size: 0.6em;
     width: 50%;
+}
+
+#split-even-btn {
+    margin: 1em 0em 0em;
 }
 
 .even-calculations {
@@ -146,7 +155,7 @@ main {
     padding: 0;
 }
 
-#total-amount, #split-amount {
+#even-total-amount, #split-amount {
     margin: 0.25em 0em;
     padding: 0;
     font-family: "Roboto-Bold";
