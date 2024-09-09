@@ -11,22 +11,24 @@
         <h1 class="title">Bill Splitter</h1>
     </header>
     <main>
-        <div class="item-menu">
-            <div class="add-diner">
-                <p class="add-diner-instructions">Enter each diner's name</p>
+        <div class="item-screen" id="add-diner">
+            <div class="add-diner-section">
+                <p class="instructions" id="add-diner-instructions">Enter each person's name</p>
                 <form action="javascript:;" class="add-diner-form" onsubmit="addDiners()">
-                    <div class="add-section">
-                        <input type="text" name="dinerName" id="diner-name" required/>
-                        <input type="submit" class="btn" id="add-diner-btn" value="+" />
-                    </div>
+                    <input type="text" name="dinerName" id="diner-name" required/>
+                    <input type="submit" class="btn" id="add-diner-btn" value="+" />
                 </form>
                 <div class="added-diners">
-                    <p class="diners-title">Diners Added</p>
+                    <p class="diners-title">People</p>
                 </div>
+            </div>
+            <div class="screen-options">
                 <button class="btn" id="diner-next-btn">Next</button>
             </div>
-            <div class="add-items">
-                <p class="add-items-instructions">Enter each item ordered</p>
+        </div>
+        <div class="item-screen" id="add-items">
+            <div class="add-items-section">
+                <p class="instructions" id="add-items-instructions">Enter each item ordered</p>
                 <form action="javascript:;" class="add-items-form" onsubmit="enterItems()">
                     <div class="enter-item-name">
                         <label for="item-name">Item:</label>
@@ -43,17 +45,22 @@
                         <input type="number" name="itemPrice" id="item-price" step="0.01" placeholder="0.00" required />
                     </div>
 
-                    <div class="add-item-options">
-                        <input type="submit" class="btn" id="add-item-btn" value="+" />
+                    <div class="enter-item-options">
+                        <input type="submit" class="btn" id="add-item-btn" value="Add Item" />
                     </div>
                 </form>
                 <div class="items-added">
-                    <p class="items-title">Items Added</p>
+                    <p class="items-title">Summary</p>
                 </div>
+            </div>
+            <div class="screen-options">
                 <button class="btn" id="item-next-btn">Next</button>
             </div>
-            <div class="calculate-split">
-                <p class="split-instructions">Enter the bill's information</p>
+            <div class="back-option" id="item-back-btn"><div>&lt;Back</div></div>
+        </div>
+        <div class="item-screen" id="calculate-split">
+            <div class="calculate-split-section">
+                <p class="instructions" id="split-instructions">Enter the bill's information</p>
                 <form action="javascript:;" class="calculate-form" onsubmit="splitTotalByItem()">
                     <div class="enter-item-total">
                         <label for="item-total">Bill Total:</label>
@@ -76,10 +83,13 @@
                         <input type="number" name="customTip" id="custom-tip" step="0.01" placeholder="$0.00" />
                     </div>
 
-                    <input type="submit" class="btn" id="split-item-btn" value="Split!" />
+                    <div class="screen-options">
+                        <input type="submit" class="btn" id="split-item-btn" value="Split!" />
+                    </div>
                 </form>
                 <div class="item-calculations"></div>
             </div>
+            <div class="back-option" id="split-back-btn">&lt;Back</div>
         </div>
     </main>
     <footer>

@@ -205,8 +205,8 @@ function formatCurrency(number) {
 window.addEventListener('DOMContentLoaded', () => {
     // Move on to entering the items ordered section after clicking next
     document.getElementById('diner-next-btn').addEventListener('click', () => {
-        document.querySelector('.add-diner').style.display = 'none';
-        document.querySelector('.add-items').style.display = 'flex';
+        document.getElementById('add-diner').style.display = 'none';
+        document.getElementById('add-items').style.display = 'flex';
         dinerOptions();
     });
 
@@ -228,11 +228,21 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         if (allHaveItems) {
-            document.querySelector('.add-items').style.display = 'none';
-            document.querySelector('.calculate-split').style.display = 'flex';
+            document.getElementById('add-items').style.display = 'none';
+            document.getElementById('calculate-split').style.display = 'flex';
         } else {
             window.alert(`Add an item for all diners or a shared item`);
         }
+    });
+
+    document.getElementById('item-back-btn').addEventListener('click', () => {
+        document.getElementById('add-items').style.display = 'none';
+        document.getElementById('add-diner').style.display = 'flex';
+    });
+
+    document.getElementById('split-back-btn').addEventListener('click', () => {
+        document.getElementById('calculate-split').style.display = 'none';
+        document.getElementById('add-items').style.display = 'flex';
     });
 
     // Enter custom tip
