@@ -6,6 +6,9 @@ const diners = new Map([
 // Max sales tax percentage in the US
 const MAX_SALES_TAX_PERCENTAGE = 0.125;
 
+// Check if the user already clicked the "Split!" button
+let splitComplete = false;
+
 // Add a diner to the dropdown
 const dinerOptions = () => {
     diners.forEach((items, diner) => {
@@ -72,8 +75,6 @@ const enterItems = () => {
 }
 
 // Calculations for splitting the items
-let splitComplete = false;
-
 const splitTotalByItem = () => {
     if (splitComplete) {
         let calculationsContainer = document.querySelector('.calculations');

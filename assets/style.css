@@ -378,3 +378,45 @@ main {
     font-family: "Roboto-Bold";
 }
 
+@media screen and (min-width: 768px) {
+    main {
+        padding: 0.5em;
+    }
+
+    .title {
+        margin: 0.5em;
+    }
+
+    .even-menu, .item-screen {
+        width: 50%;
+    }
+
+    .add-diner-form, .added-diners {
+        width: 90%;
+    }
+
+    #diner-name {
+        width: 70%;
+    }
+
+    .calculate-form {
+        width: 100%;
+    }
+
+    .enter-item-total, .enter-item-tax, .enter-item-gratuity, .enter-item-tip {
+        margin: 0.25em;
+    }
+
+    .item-calculations {
+        height: 8em;
+        margin: 0.5em;
+    }
+
+    .screen-options {
+        margin: 0.5em 0em 0em;
+    }
+
+    .back-option {
+        margin: 0.25em 0em 0em;
+    }
+}
