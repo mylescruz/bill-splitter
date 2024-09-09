@@ -420,3 +420,23 @@ main {
         margin: 0.25em 0em 0em;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .even-menu, .item-screen {
+        width: 40%;
+    }
+
+    .even-total, .even-tax, .even-gratuity, .even-tip, .even-diners, .even-total > input, .even-tax > input, .even-gratuity > input, .even-tip > select, .even-diners > select {
+        font-size: 1em;
+    }
+
+    .btn:hover {
+        background-color: var(--primary-white);
+        color: var(--primary-green);
+    }
+
+    #home-btn:hover {
+        background-color: var(--primary-green);
+        color: var(--primary-white);
+    }
+}
