@@ -6,15 +6,9 @@ const splitTotalEvenly = () => {
     const billTotal = parseFloat(document.getElementById('split-total').value);
     const numDiners = parseInt(document.getElementById('num-diners').value);
     const tax = parseFloat(document.getElementById('tax').value);
-    let gratuity = document.getElementById('gratuity').value;
-    if (gratuity === "") {
-        gratuity = 0;
-    } else {
-        gratuity = parseFloat(gratuity);
-    }
     const tipPercentage = document.getElementById('tip').value;
 
-    const subTotal = billTotal - gratuity - tax;
+    const subTotal = billTotal - tax;
     const taxPercentage = tax / subTotal;
 
     if (taxPercentage > MAX_SALES_TAX_PERCENTAGE) {

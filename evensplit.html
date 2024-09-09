@@ -15,18 +15,13 @@
         <div class="even-menu">
             <form action="javascript:;" class="even-form" onsubmit="splitTotalEvenly()">
                 <div class="even-total">
-                    <label for="total">Total:</label>
+                    <label for="split-total">Total:</label>
                     <input type="number" name="total" id="split-total" step="0.01" placeholder="$0.00" min="1.00" required />
                 </div>
 
                 <div class="even-tax">
                     <label for="tax">Tax:</label>
                     <input type="number" name="tax" id="tax" step=".01" min="0.01" placeholder="$0.00" required />
-                </div>
-                
-                <div class="even-gratuity">
-                    <label for="gratuity">Gratuity:</label>
-                    <input type="number" name="gratuity" id="gratuity" step=".01" min="0.01" placeholder="$0.00" />
                 </div>
 
                 <div class="even-tip">
@@ -41,7 +36,7 @@
                 </div>
                 
                 <div class="even-diners">
-                    <label for="numDiners">People:</label>
+                    <label for="num-diners">People:</label>
                     <select name="numDiners" id="num-diners">
                         <option value="2">2</option>
                         <option value="3">3</option>
