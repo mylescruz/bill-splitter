@@ -12,10 +12,16 @@ let splitComplete = false;
 // Add a diner to the dropdown
 const dinerOptions = () => {
     diners.forEach((items, diner) => {
-        const dinerOption = document.createElement('option');
-        dinerOption.value = diner;
-        dinerOption.text = diner;
-        document.getElementById('diners-dropdown').add(dinerOption);
+        const dinersDropdown = document.getElementById('diners-dropdown');
+
+        // Check if diner is already added to the select tag
+        const checkDiner = dinersDropdown.querySelector(`option[value="${diner}"]`);
+        if (checkDiner === null) {
+            const dinerOption = document.createElement('option');
+            dinerOption.value = diner;
+            dinerOption.text = diner;
+            dinersDropdown.add(dinerOption);
+        }
     });
 };
 
