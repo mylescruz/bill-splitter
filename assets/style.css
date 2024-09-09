@@ -346,20 +346,31 @@ main {
 }
 
 .calculated-total, #total-amount {
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
-.calculated-total, .shared-order, .diner-order, #total-amount {
-    margin: 0.25em 0.5em;
+#total-amount {
+    font-family: "Roboto-Bold";
+}
+
+.shared-order, .diner-order {
+    margin: 0.75em 0.75em;
     padding: 0;
 }
 
-.shared-items, .shared-cost, .diner-items, .diner-cost {
+.shared-title, .shared-items, .shared-cost, .diner-name, .diner-items, .diner-cost {
     margin: 0;
     padding: 0;
 }
 
-.sub-total, .tax, .tip, .total {
+.shared-title, .diner-name {
+    font-family: "Roboto-Bold";
+    text-align: center;
+}
+
+.shared-price, .sub-total, .tax, .tip, .total {
     float: right;
 }
 

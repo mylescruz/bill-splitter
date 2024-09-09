@@ -78,6 +78,7 @@ const splitTotalByItem = () => {
     if (splitComplete) {
         let calculationsContainer = document.querySelector('.calculations');
         calculationsContainer.remove();
+        splitComplete = false;
     }
     let calculationsContainer = document.createElement('div');
     calculationsContainer.classList.add('calculations');
@@ -121,30 +122,35 @@ const splitTotalByItem = () => {
     // Calculate total for each diner
     const splitContainer = document.querySelector('.item-calculations');
     let sharedPrice = 0;
+    let sharedItems = [];
     const numDiners = diners.size - 1;
 
     diners.forEach((items, diner) => {
         if (diner === 'Shared') {
             if (items.length >= 1) {            
                 let totalSharedCost = 0;
-                let sharedItems = '';
                 items.forEach(item => {
                     totalSharedCost += parseFloat(item.price);
-                    sharedItems += item.item + ' ';
+                    sharedItems.push(item.item);
                 });
                 sharedPrice = totalSharedCost / numDiners;
                 
                 let sharedContainer = document.createElement('div');
                 sharedContainer.classList.add('shared-order');
 
+                let sharedTitle = document.createElement('p');
+                sharedTitle.classList.add('shared-title');
+                sharedTitle.textContent = `${diner}`;
+                sharedContainer.appendChild(sharedTitle);
+
                 let sharedItem = document.createElement('p');
                 sharedItem.classList.add('shared-items');
-                sharedItem.textContent = `• ${diner} Items: ${sharedItems}`
+                sharedItem.textContent = `• Items: ${sharedItems.join(", ")}`;
                 sharedContainer.appendChild(sharedItem);
 
                 let sharedCost = document.createElement('p');
                 sharedCost.classList.add('shared-cost');
-                sharedCost.textContent = `Price per person: ${formatCurrency(sharedPrice)}`;
+                sharedCost.innerHTML = `Price per person: <span class="shared-price">${formatCurrency(sharedPrice)}</span>`;
                 sharedContainer.appendChild(sharedCost);
 
                 calculationsContainer.append(sharedContainer);
@@ -152,17 +158,20 @@ const splitTotalByItem = () => {
         } else {
             let dinerContainer = document.createElement('div');
             dinerContainer.classList.add('diner-order');
+            let dinerName = document.createElement('p');
+            dinerName.classList.add('diner-name');
             let dinerItems = document.createElement('p');
             dinerItems.classList.add('diner-items');
             let dinerCost = document.createElement('div');
             dinerCost.classList.add('diner-cost');
 
             let dinerSubTotal = sharedPrice;
-            let itemsOrdered = '';
+            let itemsOrdered = [];
             items.forEach(item => {
                 dinerSubTotal += parseFloat(item.price);
-                itemsOrdered += item.item + ' ';
+                itemsOrdered.push(item.item);
             });
+            let allItemsOrdered = itemsOrdered.concat(sharedItems);
 
             const dinerTaxes = dinerSubTotal * taxPercentage;
 
@@ -174,13 +183,16 @@ const splitTotalByItem = () => {
             }
             
             const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
-            dinerItems.textContent = `• ${diner}'s Items: ${itemsOrdered}`;
+            dinerName.textContent = `${diner}`;
+            dinerItems.textContent = `• Items: ${allItemsOrdered.join(", ")}`;
             dinerCost.innerHTML = `
-                <span class="bill-info">SubTotal:</span> <span class="sub-total">${formatCurrency(dinerSubTotal)}</span> <br/>
-                <span class="bill-info">Tax:</span> <span class="tax">${formatCurrency(dinerTaxes)}</span> <br/>
-                <span class="bill-info">Tip:</span> <span class="tip">${formatCurrency(dinerTip)}</span> <br/>
-                <span class="bill-info">Total:</span> <span class="total">${formatCurrency(dinerTotal)}</span> <br/>
+                SubTotal: <span class="sub-total">${formatCurrency(dinerSubTotal)}</span> <br/>
+                Tax: <span class="tax">${formatCurrency(dinerTaxes)}</span> <br/>
+                Tip: <span class="tip">${formatCurrency(dinerTip)}</span> <br/>
+                Total: <span class="total">${formatCurrency(dinerTotal)}</span> <br/>
             `;
+
+            dinerContainer.appendChild(dinerName);
             dinerContainer.appendChild(dinerItems);
             dinerContainer.appendChild(dinerCost);
 
@@ -241,6 +253,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('split-back-btn').addEventListener('click', () => {
+        if (splitComplete) {
+            let calculationsContainer = document.querySelector('.calculations');
+            calculationsContainer.remove();
+            splitComplete = false;
+        }
+
         document.getElementById('calculate-split').style.display = 'none';
         document.getElementById('add-items').style.display = 'flex';
     });
