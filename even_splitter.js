@@ -1,14 +1,20 @@
 // Max sales tax percentage in the US
-const MAX_SALES_TAX_PERCENTAGE = 0.1035;
+const MAX_SALES_TAX_PERCENTAGE = 0.125;
 
 // Split the total amount plus tip evenly by the number of diners
 const splitTotalEvenly = () => {
     const billTotal = parseFloat(document.getElementById('split-total').value);
     const numDiners = parseInt(document.getElementById('num-diners').value);
     const tax = parseFloat(document.getElementById('tax').value);
+    let gratuity = document.getElementById('gratuity').value;
+    if (gratuity === "") {
+        gratuity = 0;
+    } else {
+        gratuity = parseFloat(gratuity);
+    }
     const tipPercentage = document.getElementById('tip').value;
 
-    const subTotal = billTotal - tax;
+    const subTotal = billTotal - gratuity - tax;
     const taxPercentage = tax / subTotal;
 
     if (taxPercentage > MAX_SALES_TAX_PERCENTAGE) {
@@ -16,14 +22,15 @@ const splitTotalEvenly = () => {
         return;
     }
 
-    let totalPlusTip = 0;
+    let totalPlusTip = parseFloat(billTotal);
     if (tipPercentage === 'Custom') {
         const customTip = parseFloat(document.getElementById('custom-tip').value);
-        totalPlusTip = parseFloat(billTotal) + parseFloat(customTip);
+        totalPlusTip += parseFloat(customTip);
     } else {
         const tipAmount = subTotal * parseFloat(tipPercentage);
-        totalPlusTip = parseFloat(billTotal) + parseFloat(tipAmount);
+        totalPlusTip += parseFloat(tipAmount);
     }
+
     const splitAmount = totalPlusTip / numDiners;
     
     document.getElementById('even-total-amount').textContent = `${formatCurrency(totalPlusTip)}`;

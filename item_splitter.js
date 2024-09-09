@@ -4,7 +4,7 @@ const diners = new Map([
 ]);
 
 // Max sales tax percentage in the US
-const MAX_SALES_TAX_PERCENTAGE = 0.1035;
+const MAX_SALES_TAX_PERCENTAGE = 0.125;
 
 // Add a diner to the dropdown
 const dinerOptions = () => {
@@ -90,15 +90,28 @@ const splitTotalByItem = () => {
     totalAmount.setAttribute('id','total-amount');
 
     const billTotal = parseFloat(document.getElementById('item-total').value);
+    let gratuity = document.getElementById('gratuity').value;
+    let gratuityFlag = true;
+    if (gratuity === "") {
+        gratuity = 0;
+        gratuityFlag = false;
+    } else {
+        gratuity = parseFloat(gratuity);
+    }
     const tax = parseFloat(document.getElementById('tax').value);
     const tipPercentage = document.getElementById('tip').value;
 
     let totalPlusTip = 0;
-    const subTotal = billTotal - tax;
+    const subTotal = billTotal - gratuity - tax;
     const taxPercentage = tax / subTotal;
 
     if (taxPercentage > MAX_SALES_TAX_PERCENTAGE) {
         window.alert('Invalid total and tax amounts');
+        return;
+    }
+
+    if (gratuity >= subTotal) {
+        window.alert('Invalid gratuity amount');
         return;
     }
 
@@ -181,6 +194,10 @@ const splitTotalByItem = () => {
             } else {
                 dinerTip = dinerSubTotal * parseFloat(tipPercentage);
             }
+
+            if (gratuityFlag) {
+                dinerTip += (gratuity / numDiners);
+            }
             
             const dinerTotal = dinerSubTotal + dinerTaxes + dinerTip;
             dinerName.textContent = `${diner}`;
@@ -188,7 +205,7 @@ const splitTotalByItem = () => {
             dinerCost.innerHTML = `
                 SubTotal: <span class="sub-total">${formatCurrency(dinerSubTotal)}</span> <br/>
                 Tax: <span class="tax">${formatCurrency(dinerTaxes)}</span> <br/>
-                Tip: <span class="tip">${formatCurrency(dinerTip)}</span> <br/>
+                Tip & Gratuity: <span class="tip">${formatCurrency(dinerTip)}</span> <br/>
                 Total: <span class="total">${formatCurrency(dinerTotal)}</span> <br/>
             `;
 

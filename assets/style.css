@@ -112,14 +112,14 @@ main {
     margin: 0.5em 0em 0em;
 }
 
-.even-total, .even-tax, .even-tip, .even-diners  {
+.even-total, .even-tax, .even-gratuity, .even-tip, .even-diners  {
     margin: 0.25em 0em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.even-total > input, .even-tax > input, .even-tip > select, .even-diners > select {
+.even-total > input, .even-tax > input, .even-gratuity > input, .even-tip > select, .even-diners > select {
     font-size: 0.6em;
     width: 50%;
 }
@@ -312,7 +312,7 @@ main {
     align-items: center;
 }
 
-.enter-item-total, .enter-item-tax, .enter-item-tip {
+.enter-item-total, .enter-item-tax, .enter-item-gratuity, .enter-item-tip {
     margin: 0.5em 0em;
     display: flex;
     flex-direction: row;
@@ -320,7 +320,7 @@ main {
     font-size: 0.75em;
 }
 
-.enter-item-total > input, .enter-item-tax > input, .enter-item-tip > select {
+.enter-item-total > input, .enter-item-tax > input, .enter-item-gratuity > input, .enter-item-tip > select {
     font-size: 0.8em;
     width: 50%;
 }
