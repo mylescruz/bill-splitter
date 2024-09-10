@@ -345,13 +345,17 @@ main {
     font-size: 0.65em;
 }
 
-.calculated-total, #total-amount {
-    margin: 0;
-    padding: 0;
+.calculated-amount {
+    margin: 0.25em 0.75em;
+}
+
+.calculated-title {
+    margin: 0.25em 0em;
     text-align: center;
 }
 
-#total-amount {
+.calculated-totals {
+    float: right;
     font-family: "Roboto-Bold";
 }
 

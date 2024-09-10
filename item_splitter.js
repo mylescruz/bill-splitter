@@ -87,14 +87,15 @@ const splitTotalByItem = () => {
         calculationsContainer.remove();
         splitComplete = false;
     }
-    let calculationsContainer = document.createElement('div');
+    const calculationsContainer = document.createElement('div');
     calculationsContainer.classList.add('calculations');
-    
-    let calculatedTotal = document.createElement('p');
-    calculatedTotal.classList.add('calculated-total');
-    calculatedTotal.innerHTML = 'Bill Total with Tip';
-    let totalAmount = document.createElement('p');
-    totalAmount.setAttribute('id','total-amount');
+
+    const totalAmount = document.createElement('div');
+    totalAmount.classList.add('calculated-amount');
+
+    const calculatedTitle = document.createElement('p');
+    calculatedTitle.classList.add('calculated-title');
+    calculatedTitle.innerHTML = 'Bill Totals';
 
     const billTotal = parseFloat(document.getElementById('item-total').value);
     let gratuity = document.getElementById('gratuity').value;
@@ -135,9 +136,12 @@ const splitTotalByItem = () => {
         totalPlusTip = parseFloat(billTotal) + parseFloat(tipAmount);
     }
     
-    totalAmount.textContent = `${formatCurrency(totalPlusTip)}`;
+    totalAmount.innerHTML = `
+        Tip: <span class="calculated-totals">${formatCurrency(tipAmount)}</span> <br/>
+        Total: <span class="calculated-totals">${formatCurrency(totalPlusTip)}</span> <br/>
+    `;
 
-    calculationsContainer.append(calculatedTotal, totalAmount);
+    calculationsContainer.append(calculatedTitle, totalAmount);
     
     // Calculate total for each diner
     const splitContainer = document.querySelector('.item-calculations');
