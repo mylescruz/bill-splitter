@@ -16,21 +16,32 @@ const splitTotalEvenly = () => {
         return;
     }
 
+    let tipTotal = 0;
     let totalPlusTip = parseFloat(billTotal);
     if (tipPercentage === 'Custom') {
         const customTip = parseFloat(document.getElementById('custom-tip').value);
+        tipTotal = customTip;
         totalPlusTip += parseFloat(customTip);
     } else {
-        const tipAmount = subTotal * parseFloat(tipPercentage);
-        totalPlusTip += parseFloat(tipAmount);
+        tipTotal = subTotal * parseFloat(tipPercentage);
+        totalPlusTip += parseFloat(tipTotal);
     }
 
     const splitAmount = totalPlusTip / numDiners;
     
-    document.getElementById('even-total-amount').textContent = `${formatCurrency(totalPlusTip)}`;
-    document.getElementById('split-amount').textContent = `${formatCurrency(splitAmount)}`;
+    const totals = document.createElement('div');
+    
+    totals.innerHTML = `
+        <p>Tax: <span id="even-tip-amount">${formatCurrency(tipTotal)}</span> </p>
+        <p>Bill Total:<span id="even-total-amount">${formatCurrency(totalPlusTip)}</span> </p>
+        <p>Each Person:<span id="split-amount">${formatCurrency(splitAmount)}</span> </p> 
+    `;
 
-    document.querySelector('.even-calculations').style.display = 'flex';
+    const calculationsContainer = document.querySelector('.even-calculations');
+    totals.classList.add('calculations');
+
+    calculationsContainer.append(totals);
+    calculationsContainer.style.display = 'flex';
 };
 
 // Format the given number into US currency

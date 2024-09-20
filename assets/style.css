@@ -134,7 +134,6 @@ main {
     padding: 0.5em 0em;
     height: 7em;
     display: none;
-    flex-direction: column;
     overflow-y: scroll;
     background-color: var(--primary-green);
     color: var(--primary-white);
@@ -142,14 +141,19 @@ main {
     font-size: 0.75em; 
 }
 
-.even-calculations > p {
-    margin: 0.25em 0em;
-    padding: 0;
+.calculations {
+    width: 100%;
+    margin: 0em 0.75em;
+    text-align: left;
+    font-size: 1.25em;
 }
 
-#even-total-amount, #split-amount {
-    margin: 0.25em 0em;
-    padding: 0;
+.calculations > p {
+    margin: 0.5em;
+}
+
+#even-tip-amount, #even-total-amount, #split-amount {
+    float: right;
     font-family: "Roboto-Bold";
 }
 
