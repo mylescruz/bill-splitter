@@ -1,8 +1,17 @@
 // Max sales tax percentage in the US
 const MAX_SALES_TAX_PERCENTAGE = 0.125;
 
+// Check if the user already clicked the "Split!" button
+let splitComplete = false;
+
 // Split the total amount plus tip evenly by the number of diners
 const splitTotalEvenly = () => {
+    if (splitComplete) {
+        let calculationsContainer = document.querySelector('.calculations');
+        calculationsContainer.remove();
+        splitComplete = false;
+    }
+
     const billTotal = parseFloat(document.getElementById('split-total').value);
     const numDiners = parseInt(document.getElementById('num-diners').value);
     const tax = parseFloat(document.getElementById('tax').value);
@@ -42,6 +51,8 @@ const splitTotalEvenly = () => {
 
     calculationsContainer.append(totals);
     calculationsContainer.style.display = 'flex';
+
+    splitComplete = true;
 };
 
 // Format the given number into US currency
